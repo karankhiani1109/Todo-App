@@ -3,7 +3,7 @@ export const getTodoList = (state) =>
 
 export const getTodoById = (state, id) =>
   state && state.todos && state.todos.byIds
-    ? { ...state.todos.byIds[id - 1], id }
+    ? { ...state.todos.byIds[id], id }
     : {};
 
 export const getTodos = (state) =>
@@ -30,12 +30,10 @@ export const getUserById = (state, id) =>
     : {};
 
 export const getUsers = (state) =>
-  getUserList(state).map((id) => getUserById(state, id - 1));
+  getUserList(state).map((id) => getUserById(state, id));
 
 export const getTodoDetailById = (state, id) =>
-  state && state.todos && state.todos.byIds
-    ? { ...state.todos.byIds[id - 1] }
-    : {};
+  state && state.todos && state.todos.byIds ? { ...state.todos.byIds[id] } : {};
 
 export const getUserDetailsFromTodoId = (state, todoid) => {
   const todo = getTodoDetailById(state, todoid);

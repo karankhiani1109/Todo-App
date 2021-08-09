@@ -4,7 +4,7 @@ import {
   EDIT_TODO,
   EDIT_TODO_SUCCESS,
   LOAD_DATA,
-  LOAD_USERS_SUCCESS,
+  LOAD_DATA_SUCCESS,
 } from "../actionTypes";
 
 const initialState = false;
@@ -15,7 +15,7 @@ const IsLoading = (state = initialState, action) => {
     case EDIT_TODO:
       return true;
 
-    case LOAD_USERS_SUCCESS:
+    case LOAD_DATA_SUCCESS:
     case TOGGLE_SUCCESS:
     case EDIT_TODO_SUCCESS:
       return false;

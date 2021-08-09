@@ -1,6 +1,6 @@
 import {
   EDIT_TODO_SUCCESS,
-  LOAD_TODOS_SUCCESS,
+  LOAD_DATA_SUCCESS,
   TOGGLE_SUCCESS,
 } from "../actionTypes";
 const initialState = {
@@ -10,9 +10,12 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case LOAD_TODOS_SUCCESS:
-      const todos = action.todos;
-      const ids = todos.map((x) => x.id);
+    case LOAD_DATA_SUCCESS:
+      const todos = action.todos.reduce((result, item) => {
+        result[item.id] = item;
+        return result;
+      }, {});
+      const ids = action.todos.map((x) => x.id);
       return {
         allIds: ids,
         byIds: { ...todos },

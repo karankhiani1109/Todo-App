@@ -1,4 +1,4 @@
-import { LOAD_USERS_SUCCESS } from "../actionTypes";
+import { LOAD_DATA_SUCCESS } from "../actionTypes";
 const initialState = {
   allIds: [],
   byIds: {},
@@ -6,9 +6,12 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case LOAD_USERS_SUCCESS:
-      const users = action.users;
-      const ids = users.map((x) => x.id);
+    case LOAD_DATA_SUCCESS:
+      const users = action.users.reduce((result, item) => {
+        result[item.id] = item;
+        return result;
+      }, {});
+      const ids = action.users.map((x) => x.id);
       return {
         allIds: ids,
         byIds: { ...users },

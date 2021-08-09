@@ -6,6 +6,7 @@ import {
   TOGGLE_SUCCESS,
   EDIT_TODO,
   EDIT_TODO_SUCCESS,
+  LOAD_DATA_SUCCESS,
 } from "./actionTypes";
 
 export const loadDataAction = (todoid) => {
@@ -14,15 +15,22 @@ export const loadDataAction = (todoid) => {
     payload: { todoid },
   };
 };
-export const loadTodosSucessAction = (todos) => {
+// export const loadTodosSucessAction = (todos) => {
+//   return {
+//     type: LOAD_TODOS_SUCCESS,
+//     todos,
+//   };
+// };
+// export const loadUsersSucessAction = (users) => {
+//   return {
+//     type: LOAD_USERS_SUCCESS,
+//     users,
+//   };
+// };
+export const loadDataSuccessAction = (todos, users) => {
   return {
-    type: LOAD_TODOS_SUCCESS,
+    type: LOAD_DATA_SUCCESS,
     todos,
-  };
-};
-export const loadUsersSucessAction = (users) => {
-  return {
-    type: LOAD_USERS_SUCCESS,
     users,
   };
 };
